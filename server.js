@@ -42,7 +42,9 @@ mongodb.connect(
 );
 
 
-// TODO: update project routes
+// TODO: update project routes, isolate to their own connection pages
+
+
 app.get('/read', (req, res) => {
   // Use db connection to find all documents in collection
   db.collection('petCollection')

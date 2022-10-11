@@ -1,5 +1,18 @@
 const { Schema, model } = require('mongoose');
 
+
+
+// TODO: User class
+
+// username needs: String, Unique, Required, Trimmed
+
+// email needs: String, unique, required, and match a valid email (refer to docs in MongoDB)
+
+// thoughts need: and array of _id values referencing the Thought model
+
+// friends need: array of _id values referencing the User model (self-reference)
+
+
 // Schema to create User model
 const userSchema = new Schema(
   {

@@ -1,5 +1,6 @@
 const User = require('./User');
-const Response = require('./Reaction');
-const Video = require('./Thought');
+// change pathing when reaction is moved to subclass of thought 
+const Reaction = require('./Reaction');
+const Thought = require('./Thought');
 
-module.exports = { User, Video, Response };
+module.exports = { User, Thought, Reaction };
