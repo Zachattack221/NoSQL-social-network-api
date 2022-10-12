@@ -6,7 +6,7 @@ module.exports = {
       .then((users) => res.json(users))
       .catch((err) => res.status(500).json(err));
   },
-  getSingleUser(req, res) {
+  getSingleUserById(req, res) {
     User.findOne({ _id: req.params.userId })
       .select('-__v')
       .then((user) =>
@@ -27,7 +27,7 @@ module.exports = {
     .then((dbPostData) => res.json(dbPostData))
     .catch((err) => res.status(500).json(err));
   },
-  updatePost(req, res) {
+  updateUserById(req, res) {
   Post.findByIdAndUpdate(
     req.params.postId,
     req.body,
