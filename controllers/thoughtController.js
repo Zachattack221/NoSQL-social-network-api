@@ -1,13 +1,13 @@
-const { Video, User } = require('../models');
+const { Thought, User } = require('../models');
 
 module.exports = {
-  getVideos(req, res) {
-    Video.find()
+  getThought(req, res) {
+    Thought.find()
       .then((videos) => res.json(videos))
       .catch((err) => res.status(500).json(err));
   },
   getSingleVideo(req, res) {
-    Video.findOne({ _id: req.params.videoId })
+    Thought.findOne({ _id: req.params.videoId })
       .then((video) =>
         !video
           ? res.status(404).json({ message: 'No video with that ID' })
@@ -17,7 +17,7 @@ module.exports = {
   },
   // create a new video
   createVideo(req, res) {
-    Video.create(req.body)
+    Thought.create(req.body)
       .then((video) => {
         return User.findOneAndUpdate(
           { _id: req.body.userId },

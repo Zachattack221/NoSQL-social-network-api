@@ -16,29 +16,15 @@
 
 const router = require('express').Router();
 const {
-  getVideos,
-  getSingleVideo,
-  createVideo,
-  updateVideo,
-  deleteVideo,
-  addVideoResponse,
-  removeVideoResponse,
-} = require('../../controllers/thoughtController');
+  getThought,
+  getSingleThought,
+  createThought,
+} = require('../../controllers/commentController');
 
-// /api/videos
-router.route('/').get(getVideos).post(createVideo);
+// /api/thought
+router.route('/').get(getThought).post(createThought);
 
-// /api/videos/:videoId
-router
-  .route('/:videoId')
-  .get(getSingleVideo)
-  .put(updateVideo)
-  .delete(deleteVideo);
-
-// /api/videos/:videoId/responses
-router.route('/:videoId/responses').post(addVideoResponse);
-
-// /api/videos/:videoId/responses/:responseId
-router.route('/:videoId/responses/:responseId').delete(removeVideoResponse);
+// /api/thought/:thoughtId
+router.route('/:commentId').get(getSingleThought);
 
 module.exports = router;

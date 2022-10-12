@@ -22,5 +22,19 @@ module.exports = {
       .then((dbUserData) => res.json(dbUserData))
       .catch((err) => res.status(500).json(err));
   },
+  s(req, res) {
+    Post.findByIdAndDelete(req.params.postId)
+    .then((dbPostData) => res.json(dbPostData))
+    .catch((err) => res.status(500).json(err));
+  },
+  updatePost(req, res) {
+  Post.findByIdAndUpdate(
+    req.params.postId,
+    req.body,
+    { new: true }
+    )
+    .then((dbPostData) => res.json(dbPostData))
+    .catch((err) => res.status(500).json(err));
+  }
 };
-// TODO: Add update .put route by _id, add .delete route by _id
+  // TODO: Add update .put route by _id, add .delete route by _id

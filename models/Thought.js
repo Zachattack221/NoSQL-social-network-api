@@ -45,6 +45,11 @@ const thoughtSchema = new Schema(
   }
 );
 
+const Thought = model('thought.username', thoughtSchema);
+
+module.exports = Thought;
+
+
 // Create a virtual property `responses` that gets the amount of response per video
 // videoSchema
 //   .virtual('getResponses')
@@ -54,6 +59,3 @@ const thoughtSchema = new Schema(
 //   });
 
 // Initialize our Thought model, may need editing 
-const Thought = model('thought.username', thoughtSchema);
-
-module.exports = Thought;

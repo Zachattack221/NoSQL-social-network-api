@@ -15,7 +15,7 @@ let db;
 //   : cwd;
 
 // Connection string to local instance of MongoDB including database name
-const connectionStringURI = `mongodb://127.0.0.1:27017/shelterDB`;
+const connectionStringURI = `mongodb://127.0.0.1:27017/socialNetworkDB`;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
