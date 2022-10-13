@@ -1,12 +1,12 @@
 const { Thought, User } = require('../models');
 
 module.exports = {
-  getThought(req, res) {
+  getAllThoughts(req, res) {
     Thought.find()
-      .then((videos) => res.json(videos))
+      .then((thought) => res.json(videos))
       .catch((err) => res.status(500).json(err));
   },
-  getSingleVideo(req, res) {
+  getThoughtById(req, res) {
     Thought.findOne({ _id: req.params.videoId })
       .then((video) =>
         !video
@@ -16,7 +16,7 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   // create a new video
-  createVideo(req, res) {
+  createThought(req, res) {
     Thought.create(req.body)
       .then((video) => {
         return User.findOneAndUpdate(
@@ -37,7 +37,7 @@ module.exports = {
         res.status(500).json(err);
       });
   },
-  updateVideo(req, res) {
+  updateThought(req, res) {
     Video.findOneAndUpdate(
       { _id: req.params.videoId },
       { $set: req.body },
@@ -53,7 +53,7 @@ module.exports = {
         res.status(500).json(err);
       });
   },
-  deleteVideo(req, res) {
+  deleteThought(req, res) {
     Video.findOneAndRemove({ _id: req.params.videoId })
       .then((video) =>
         !video
@@ -74,7 +74,7 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   // Add a video response
-  addVideoResponse(req, res) {
+  createReaction(req, res) {
     Video.findOneAndUpdate(
       { _id: req.params.videoId },
       { $addToSet: { responses: req.body } },
@@ -88,7 +88,7 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   // Remove video response
-  removeVideoResponse(req, res) {
+  deleteReactionById(req, res) {
     Video.findOneAndUpdate(
       { _id: req.params.videoId },
       { $pull: { reactions: { responseId: req.params.responseId } } },
