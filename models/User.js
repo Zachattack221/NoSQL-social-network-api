@@ -1,8 +1,5 @@
 const { Schema, model } = require('mongoose');
 
-// TODO: User class
-// email needs: String, unique, required, and match a valid email (refer to docs in MongoDB)
-
 // Schema to create User model
 const UserSchema = new Schema(
   {
@@ -16,7 +13,8 @@ const UserSchema = new Schema(
       type: String,
       required: true,
       unique:true,
-      // match: TODO: add validation method
+      // using a regex to validate email
+      match: [/.+@.+\..+/, 'Must match an email address!'],
     }, 
     thoughts: [
       {

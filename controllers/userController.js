@@ -65,12 +65,12 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
 
-  // TODO: determine why friend functions aren't pulling in
+// functions for adding and removing friends
 
   addFriend(req, res) {
     User.findByIdAndUpdate(
       req.params.userId,
-      { $addToSet: { friends: req.friendId } },
+      { $addToSet: { friends: req.params.friendId } },
       { new: true }
     )
       .then((dbUserData) =>
@@ -84,7 +84,7 @@ module.exports = {
   deleteFriend(req, res) {
     User.findByIdAndUpdate(
       req.params.userId,
-      { $pull: { friends: req.friendId } },
+      { $pull: { friends: req.params.friendId } },
       { new: true }
     )
       .populate({ path: 'friends', select: '-__v' })
@@ -95,5 +95,5 @@ module.exports = {
           : res.json(dbUserData),
       )
       .catch((err) => res.status(500).json(err));
-  },
+  }
 };
