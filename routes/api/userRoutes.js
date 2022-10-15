@@ -9,25 +9,25 @@ const {
   deleteFriend,
 } = require('../../controllers/userController');
 
-// get all users
+// Get all users
 router.route('/').get(getAllUsers);
 
-// /api/users/:userId to search by Id
+// Get user by Id
 router.route('/:userId').get(getSingleUserById);
 
-// /api/users to post new User
+// Create user
 router.route('/').get(getAllUsers).post(createUser);
 
-// /api/users/:userId TODO: verify. Should be used to update a user by id
+// Update a user by Id
 router.route('/:userId').get(getSingleUserById).put(updateUserById);
 
-// /api/users/:userId TODO: verify, needs to delete user by id and cascade to delete associated user's thoughts 
+// Delete user by Id 
 router.route('/:userId').get(getSingleUserById).delete(deleteUser);
 
-// /api/users/:userId/friends/:friendId
+// Add Friend
 router.route('/:userId/friends/:friendId').post(addFriend);
 
-// /api/users/:userId/friends/:friendId
+// Delete Friend
 router.route('/:userId/friends/:friendId').delete(deleteFriend);
 
 module.exports = router;
