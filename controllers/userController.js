@@ -41,7 +41,7 @@ module.exports = {
 
   // deletes user and user's posted thoughts 
   deleteUser(req, res) {
-    User.findByIdAndDelete(req.params.postId)
+    User.findByIdAndDelete(req.params.userId)
       .then((dbUserData) => {
         !dbUserData
           ? res.status(404).json({ message: 'No user with that ID' })

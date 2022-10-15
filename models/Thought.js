@@ -22,6 +22,9 @@ const ReactionSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
+      get: (date) => {
+        return new Date(date).toLocaleString();
+      },
       // get:TODO: ()
     },
   },
@@ -45,7 +48,9 @@ const ThoughtSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      // get: TODO:()
+      get: (date) => {
+        return new Date(date).toLocaleString();
+      },
     },
     username: {
       type: String,
