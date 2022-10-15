@@ -49,12 +49,8 @@ module.exports = {
       .then((dbUserData) => {
         !dbUserData
           ? res.status(404).json({ message: 'No user with that ID' })
-          : 
-           Thought.deleteMany({ _id: { $in: [dbUserData.thoughts] } });
-          // Thought.findByIdAndUpdate(
-          //   req.params.userId,
-          //   { $pull: {  thoughts: dbUserData.thoughts } },
-          //   { new: true })
+          // thoughts still pertain, will revisit for bonus points if necessary 
+          : Thought.deleteMany({ _id: { $in: dbUserData.thoughts } });
       }).then(() => {
         res.json({ message: "User and user's posted thoughts deleted." });
       }).catch((err) => res.status(500).json(err));
