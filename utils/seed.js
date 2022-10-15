@@ -1,35 +1,24 @@
-const connection = require('../config/connection');
-const { User, Thought } = require('../models');
-// const { getRandomName, getRandomVideos } = require('./data');
+// Ended up not needing seed or data files to demonstrate concept and functionality via insomnia. Saving this seed file as a future template for actual seeding.
 
-connection.on('error', (err) => err);
-
-connection.once('open', async () => {
-  console.log('connected');
-  await Thought.deleteMany({});
-  await User.deleteMany({});
-
-  const users = [];
-  const thoughts = [];
-
-  // for (let i = 0; i < 20; i++) {
-  //   const fullName = getRandomName();
-  //   const first = fullName.split(' ')[0];
-  //   const last = fullName.split(' ')[1];
-
-  //   users.push({
-  //     first,
-  //     last,
-  //     age: Math.floor(Math.random() * (99 - 18 + 1) + 18),
-  //   });
-  // }
-
-  await User.collection.insertMany(users);
-  await Thought.collection.insertMany(thoughts);
+// const connection = require('../config/connection');
+// const { User, Thought } = require('../models');
 
 
-  console.table(users);
-  console.table(thoughts);
-  console.info('Seeding complete! 🌱');
-  process.exit(0);
-});
+// connection.on('error', (err) => err);
+
+// connection.once('open', async () => {
+//   console.log('connected');
+//   await Thought.deleteMany({});
+//   await User.deleteMany({});
+
+//   const users = [];
+//   const thoughts = [];
+
+//   await User.collection.insertMany(users);
+//   await Thought.collection.insertMany(thoughts);
+
+//   console.table(users);
+//   console.table(thoughts);
+//   console.info('Seeding complete! 🌱');
+//   process.exit(0);
+// });

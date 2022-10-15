@@ -6,6 +6,10 @@ module.exports = {
       .populate({
         path: 'friends',
         select: '-__v',
+      })      
+      .populate({
+        path: 'thoughts',
+        select: '-__v',
       })
       .select('-__v')
       .sort({ _id: -1 })
@@ -45,7 +49,12 @@ module.exports = {
       .then((dbUserData) => {
         !dbUserData
           ? res.status(404).json({ message: 'No user with that ID' })
-          : Thought.deleteMany({ _id: { $in: dbUserData.thoughts } });
+          : 
+           Thought.deleteMany({ _id: { $in: [dbUserData.thoughts] } });
+          // Thought.findByIdAndUpdate(
+          //   req.params.userId,
+          //   { $pull: {  thoughts: dbUserData.thoughts } },
+          //   { new: true })
       }).then(() => {
         res.json({ message: "User and user's posted thoughts deleted." });
       }).catch((err) => res.status(500).json(err));

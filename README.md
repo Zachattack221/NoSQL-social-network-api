@@ -15,14 +15,13 @@ The linked video above demonstrates the functionality of the application via a s
 Included npm packages: express, mongoose
 
 ## Installation
-<!-- Run 'npm i' within the console, located at the root level of the directory. This will pull in the necessary node modules/packages.
+Run 'npm i' within the console, located at the root level of the directory. This will pull in the necessary node modules/packages.
 
-Following the package install, run "mysql -u root" to open sequel terminal, then enter "SOURCE db/schema.sql" to establish our database in use (ecommerce_db). From this point please "exit" sequel shell. 
+Once necessary dependencies are installed, "npm run start" (or 'nodemon server.js" if you have nodemon installed) in the console. 
 
-Once database is created, enter "npm run seed" within the terminal to seed the content from the seeds folder.
+This will open a port at localhost:3001, accessible when 'localhost:3001' searched in browser, or when opened via Insomnia as demonstrated in the video link provided.
 
-Lastly, enter "npm run start" in the console. This will open a port at localhost:3001, accessible when 'localhost:3001' searched in browser, or when opened via Insomnia as demonstrated in the video link provided. -->
-
+The attached video walkthrough will demonstrate the application's functionality by running through CRUD operations (Create, Read, Update, and Delete) as they pertain to a NoSQL type social network.
 ## Visuals
 ![]()
 ![]()
