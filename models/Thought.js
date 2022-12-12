@@ -1,6 +1,4 @@
 const { Schema, Types, model } = require('mongoose');
-// TODO: add logic for pulling date 
-
 
 // Schema to create reaction virtual
 const ReactionSchema = new Schema(
